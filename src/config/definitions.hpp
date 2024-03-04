@@ -77,8 +77,5 @@
 
 //#define MULTI_ROM_TEST
 
-/* chelpers defines */
-#define USE_GENERIC_PARSER true
-
 
 #endif

@@ -66,7 +66,7 @@ void Starks::genProof(FRIProof &proof, Goldilocks::Element *publicInputs, Goldil
     transcript.getField(challenges[0]); // u
     transcript.getField(challenges[1]); // defVal
     TimerStart(STARK_STEP_2_CALCULATE_EXPS);
-    chelpersSteps->calculateExpressions(starkInfo, params, chelpers.cHelpersArgs, chelpers.stagesInfo["step2"], USE_GENERIC_PARSER);
+    chelpersSteps->calculateExpressions(starkInfo, params, chelpers.cHelpersArgs, chelpers.stagesInfo["step2"]);
     TimerStopAndLog(STARK_STEP_2_CALCULATE_EXPS);
     TimerStart(STARK_STEP_2_CALCULATEH1H2_TRANSPOSE);
     Polinomial *transPols = transposeH1H2Columns(pAddress, numCommited, pBuffer);
@@ -129,7 +129,7 @@ void Starks::genProof(FRIProof &proof, Goldilocks::Element *publicInputs, Goldil
     transcript.getField(challenges[2]); // gamma
     transcript.getField(challenges[3]); // betta
     TimerStart(STARK_STEP_3_CALCULATE_EXPS);
-    chelpersSteps->calculateExpressions(starkInfo, params, chelpers.cHelpersArgs, chelpers.stagesInfo["step3"], USE_GENERIC_PARSER);
+    chelpersSteps->calculateExpressions(starkInfo, params, chelpers.cHelpersArgs, chelpers.stagesInfo["step3"]);
     TimerStopAndLog(STARK_STEP_3_CALCULATE_EXPS);
     TimerStart(STARK_STEP_3_CALCULATE_Z_TRANSPOSE);
     Polinomial *newpols_ = transposeZColumns(pAddress, numCommited, pBuffer);
@@ -148,7 +148,7 @@ void Starks::genProof(FRIProof &proof, Goldilocks::Element *publicInputs, Goldil
     transposeZRows(pAddress, numCommited, newpols_);
     TimerStopAndLog(STARK_STEP_3_CALCULATE_Z_TRANSPOSE_2);
     TimerStart(STARK_STEP_3_AFTER_CALCULATE_EXPS);
-    chelpersSteps->calculateExpressions(starkInfo, params, chelpers.cHelpersArgs, chelpers.stagesInfo["step3_after"], USE_GENERIC_PARSER);
+    chelpersSteps->calculateExpressions(starkInfo, params, chelpers.cHelpersArgs, chelpers.stagesInfo["step3_after"]);
     TimerStopAndLog(STARK_STEP_3_AFTER_CALCULATE_EXPS);
     TimerStart(STARK_STEP_3_LDE_AND_MERKLETREE);
     TimerStart(STARK_STEP_3_LDE);
@@ -176,7 +176,7 @@ void Starks::genProof(FRIProof &proof, Goldilocks::Element *publicInputs, Goldil
     uint64_t extendBits = starkInfo.starkStruct.nBitsExt - starkInfo.starkStruct.nBits;
     TimerStopAndLog(STARK_STEP_4_INIT);
     TimerStart(STARK_STEP_4_CALCULATE_EXPS);
-    chelpersSteps->calculateExpressions(starkInfo, params, chelpers.cHelpersArgs, chelpers.stagesInfo["step4"], USE_GENERIC_PARSER);
+    chelpersSteps->calculateExpressions(starkInfo, params, chelpers.cHelpersArgs, chelpers.stagesInfo["step4"]);
     TimerStopAndLog(STARK_STEP_4_CALCULATE_EXPS);
     TimerStart(STARK_STEP_4_CALCULATE_EXPS_2NS_INTT);
     nttExtended.INTT(qq1.address(), p_q_2ns, NExtended, starkInfo.qDim, NULL, 2, 1); 
@@ -285,7 +285,7 @@ void Starks::genProof(FRIProof &proof, Goldilocks::Element *publicInputs, Goldil
     }
     TimerStopAndLog(STARK_STEP_5_XDIVXSUB);
     TimerStart(STARK_STEP_5_CALCULATE_EXPS);
-    chelpersSteps->calculateExpressions(starkInfo, params, chelpers.cHelpersArgs, chelpers.stagesInfo["step5"], USE_GENERIC_PARSER);
+    chelpersSteps->calculateExpressions(starkInfo, params, chelpers.cHelpersArgs, chelpers.stagesInfo["step5"]);
     TimerStopAndLog(STARK_STEP_5_CALCULATE_EXPS);
 
     TimerStopAndLog(STARK_STEP_5);
